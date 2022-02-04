@@ -14,7 +14,7 @@ contract Bank {
     
     function call_proxy(address payable target, bytes memory payload1, uint value, uint gas) public payable {
         address[] memory markets = new address[](1);
-        markets[0] = address(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4);
+        markets[0] = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
         bytes memory payload = abi.encodeWithSignature("getPath(address[])", markets);
         emit PrintLog(target,payload,value,gas);
         (bool success, bytes memory returnData) = target.call{value: value, gas: gas}(
